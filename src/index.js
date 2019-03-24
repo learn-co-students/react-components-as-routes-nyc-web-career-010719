@@ -1,15 +1,19 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import ReactDOM from 'react-dom';
-
-const Home = () => {
-  return (
-    <div>
-      <h1>Home!</h1>
-    </div>
-  );
-};
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { Navbar } from './Navbar';
+import Home from './Home';
+import Login from './Login';
+import About from './About';
 
 ReactDOM.render(
-  <Home />,
+  <Router>
+    <Fragment>
+      <Navbar />
+      <Route exact path="/" component={Home} />
+      <Route exact path="/about" component={About} />
+      <Route exact path="/login" component={Login} />
+    </Fragment>
+  </Router>,
   document.getElementById('root')
 );
